@@ -15,6 +15,12 @@ public class Leñador extends Carta {
         super();
     }
 
+    public Leñador(String nombre) {
+        super(nombre);
+    }
+    
+    
+
     public Leñador(String nombre, double daño, int pts_vida, String objetivo, String velocidad, int coste_elixir, String tipo) {
         super(nombre, daño, pts_vida, "Terrestres", "Alta", 4, "Legendaria");
     }

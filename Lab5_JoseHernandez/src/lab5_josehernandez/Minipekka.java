@@ -15,6 +15,12 @@ public class Minipekka extends Carta {
         super();
     }
 
+    public Minipekka(String nombre) {
+        super(nombre);
+    }
+    
+    
+
     public Minipekka(String nombre, double daño, int pts_vida, String objetivo, String velocidad, int coste_elixir, String tipo) {
         super(nombre, daño, pts_vida, "Terrestres", "Alta", 4, "Especial");
 

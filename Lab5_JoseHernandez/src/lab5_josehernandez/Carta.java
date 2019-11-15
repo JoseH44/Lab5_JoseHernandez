@@ -22,6 +22,12 @@ public class Carta {
     public Carta() {
     }
 
+    public Carta(String nombre) {
+        this.nombre = nombre;
+    }
+    
+    
+
     public Carta(String nombre, double daño, int pts_vida, String objetivo, String velocidad, int coste_elixir, String tipo) {
         this.nombre = nombre;
         this.daño = daño;

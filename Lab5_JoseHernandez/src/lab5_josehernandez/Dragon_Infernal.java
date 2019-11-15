@@ -15,6 +15,11 @@ public class Dragon_Infernal extends Carta {
         super();
     }
 
+    public Dragon_Infernal(String nombre) {
+        super(nombre);
+    }
+    
+
     public Dragon_Infernal(String nombre, double daño, int pts_vida, String objetivo, String velocidad, int coste_elixir, String tipo) {
         super(nombre, daño, pts_vida, "Aereos y Terrestres", "Media", 4, "Legendaria");
 

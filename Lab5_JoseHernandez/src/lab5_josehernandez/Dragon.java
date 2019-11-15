@@ -15,6 +15,12 @@ public class Dragon extends Carta {
         super();
     }
 
+    public Dragon(String nombre) {
+        super(nombre);
+    }
+    
+    
+
     public Dragon(String nombre, double daño, int pts_vida, String objetivo, String velocidad, int coste_elixir, String tipo) {
         super(nombre, daño, pts_vida, "Aereos y Terrestres", "Media", 4, "Epica");
 
