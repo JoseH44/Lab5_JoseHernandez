@@ -15,7 +15,7 @@ public class Gigante_Noble extends Carta {
     }
 
     public Gigante_Noble(String nombre, double daño, int pts_vida, String objetivo, String velocidad, int coste_elixir, String tipo) {
-        super("Gigante Noble", daño, pts_vida, "Terrestres", "Media", 6, "Comun");
+        super(nombre, daño, pts_vida, "Terrestres", "Media", 6, "Comun");
     }
 
     @Override

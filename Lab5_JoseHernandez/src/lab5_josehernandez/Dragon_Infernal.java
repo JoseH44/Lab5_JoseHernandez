@@ -16,7 +16,7 @@ public class Dragon_Infernal extends Carta {
     }
 
     public Dragon_Infernal(String nombre, double daño, int pts_vida, String objetivo, String velocidad, int coste_elixir, String tipo) {
-        super("Dragon Ingernal", daño, pts_vida, "Aereos y Terrestres", "Media", 4, "Legendaria");
+        super(nombre, daño, pts_vida, "Aereos y Terrestres", "Media", 4, "Legendaria");
 
     }
 

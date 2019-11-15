@@ -5,6 +5,12 @@
  */
 package lab5_josehernandez;
 
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Date;
+import javax.swing.JColorChooser;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jrdjh
@@ -30,6 +36,21 @@ public class Login extends javax.swing.JFrame {
 
         jd_Registrar = new javax.swing.JDialog();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        tf_nombreRegistro = new javax.swing.JTextField();
+        tf_apellidoRegistro = new javax.swing.JTextField();
+        tf_nomUsuarioRegistro = new javax.swing.JTextField();
+        pf_contra1Registro = new javax.swing.JPasswordField();
+        pf_contra2Registro = new javax.swing.JPasswordField();
+        dc_fecha_de_nacimiento = new com.toedter.calendar.JDateChooser();
+        bt_color = new javax.swing.JButton();
+        bt_registro = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -41,21 +62,116 @@ public class Login extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel4.setText("REGISTRAR");
 
+        jLabel5.setText("Nombre:");
+
+        jLabel6.setText("Apellido:");
+
+        jLabel7.setText("Nombre de Usuario:");
+
+        jLabel8.setText("Contraseña:");
+
+        jLabel9.setText("Confirmar Contraseña:");
+
+        jLabel10.setText("Fecha de Nacimiento:");
+
+        jLabel11.setText("Color Favorito:");
+
+        bt_color.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_colorActionPerformed(evt);
+            }
+        });
+
+        bt_registro.setText("Registrar");
+        bt_registro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_registroMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jd_RegistrarLayout = new javax.swing.GroupLayout(jd_Registrar.getContentPane());
         jd_Registrar.getContentPane().setLayout(jd_RegistrarLayout);
         jd_RegistrarLayout.setHorizontalGroup(
             jd_RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_RegistrarLayout.createSequentialGroup()
-                .addGap(252, 252, 252)
-                .addComponent(jLabel4)
-                .addContainerGap(304, Short.MAX_VALUE))
+                .addGroup(jd_RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_RegistrarLayout.createSequentialGroup()
+                        .addGap(252, 252, 252)
+                        .addComponent(jLabel4))
+                    .addGroup(jd_RegistrarLayout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addGroup(jd_RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jd_RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jd_RegistrarLayout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(tf_apellidoRegistro))
+                                    .addGroup(jd_RegistrarLayout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(tf_nombreRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jd_RegistrarLayout.createSequentialGroup()
+                                    .addComponent(jLabel7)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(tf_nomUsuarioRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jd_RegistrarLayout.createSequentialGroup()
+                                    .addComponent(jLabel8)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(pf_contra1Registro)))
+                            .addGroup(jd_RegistrarLayout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(pf_contra2Registro, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_RegistrarLayout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addGap(18, 18, 18)
+                                .addComponent(bt_color, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(156, 156, 156)
+                                .addComponent(bt_registro))
+                            .addGroup(jd_RegistrarLayout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dc_fecha_de_nacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(205, Short.MAX_VALUE))
         );
         jd_RegistrarLayout.setVerticalGroup(
             jd_RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_RegistrarLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jLabel4)
-                .addContainerGap(426, Short.MAX_VALUE))
+                .addGap(51, 51, 51)
+                .addGroup(jd_RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(tf_nombreRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(jd_RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(tf_apellidoRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(jd_RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(tf_nomUsuarioRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(jd_RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(pf_contra1Registro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(pf_contra2Registro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addGroup(jd_RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addComponent(dc_fecha_de_nacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bt_color, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bt_registro)
+                    .addGroup(jd_RegistrarLayout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addGap(28, 28, 28)))
+                .addContainerGap())
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,6 +186,11 @@ public class Login extends javax.swing.JFrame {
         jButton1.setText("Ingresar");
 
         jButton2.setText("Registrar");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -119,6 +240,37 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void bt_colorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_colorActionPerformed
+        bt_color.setBackground(JColorChooser.showDialog(this, "Ingrese el color", Color.yellow));
+    }//GEN-LAST:event_bt_colorActionPerformed
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        jd_Registrar.setModal(true);
+        jd_Registrar.pack();
+        jd_Registrar.setLocationRelativeTo(this);
+        jd_Registrar.setVisible(true);
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void bt_registroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_registroMouseClicked
+        boolean registrado = false;
+        String nombre = tf_nombreRegistro.getText();
+        String apellido = tf_apellidoRegistro.getText();
+        String contraseña1 = pf_contra1Registro.getText();
+        String contraseña2 = pf_contra2Registro.getText();
+        Date fecha_nacimiento = dc_fecha_de_nacimiento.getDate();
+        int edad = (int) (((new Date()).getTime()
+                - dc_fecha_de_nacimiento.getDate().getTime())
+                / (1000 * 60 * 60 * 24));
+        System.out.println(edad);
+        Color color_fav = bt_color.getBackground();
+
+        if (nombre.isEmpty() || apellido.isEmpty() || contraseña1.isEmpty()
+                || contraseña2.isEmpty()) {
+            JOptionPane.showMessageDialog(jd_Registrar, "Alguno de los campos esta Vacio");
+        }
+
+    }//GEN-LAST:event_bt_registroMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -155,14 +307,32 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bt_color;
+    private javax.swing.JButton bt_registro;
+    private com.toedter.calendar.JDateChooser dc_fecha_de_nacimiento;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JDialog jd_Registrar;
+    private javax.swing.JPasswordField pf_contra1Registro;
+    private javax.swing.JPasswordField pf_contra2Registro;
     private javax.swing.JPasswordField pf_contraLog;
+    private javax.swing.JTextField tf_apellidoRegistro;
+    private javax.swing.JTextField tf_nomUsuarioRegistro;
+    private javax.swing.JTextField tf_nombreRegistro;
     private javax.swing.JTextField tf_usuarioLog;
     // End of variables declaration//GEN-END:variables
+    ArrayList<Usuario> lista_usuarios = new ArrayList();
+    Usuario usuario_actual;
+
 }

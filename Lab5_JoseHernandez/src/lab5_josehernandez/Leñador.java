@@ -16,7 +16,7 @@ public class Leñador extends Carta {
     }
 
     public Leñador(String nombre, double daño, int pts_vida, String objetivo, String velocidad, int coste_elixir, String tipo) {
-        super("Leñador", daño, pts_vida, "Terrestres", "Alta", 4, "Legendaria");
+        super(nombre, daño, pts_vida, "Terrestres", "Alta", 4, "Legendaria");
     }
 
     @Override

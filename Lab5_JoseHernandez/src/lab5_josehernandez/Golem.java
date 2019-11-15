@@ -16,7 +16,7 @@ public class Golem extends Carta {
     }
 
     public Golem(String nombre, double daño, int pts_vida, String objetivo, String velocidad, int coste_elixir, String tipo) {
-        super("Golem", daño, pts_vida, "Terrestres", "Baja", 8, "Epica");
+        super(nombre, daño, pts_vida, "Terrestres", "Baja", 8, "Epica");
     }
 
     @Override

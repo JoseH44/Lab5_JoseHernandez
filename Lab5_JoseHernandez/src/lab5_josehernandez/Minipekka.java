@@ -16,7 +16,7 @@ public class Minipekka extends Carta {
     }
 
     public Minipekka(String nombre, double daño, int pts_vida, String objetivo, String velocidad, int coste_elixir, String tipo) {
-        super("Minipekka", daño, pts_vida, "Terrestres", "Alta", 4, "Especial");
+        super(nombre, daño, pts_vida, "Terrestres", "Alta", 4, "Especial");
 
     }
 
