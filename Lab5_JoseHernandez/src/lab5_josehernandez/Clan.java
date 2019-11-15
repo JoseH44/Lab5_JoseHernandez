@@ -5,6 +5,7 @@
  */
 package lab5_josehernandez;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -17,16 +18,20 @@ public class Clan {
     private Date fecha_creacion;
     private String usuario_lider;
     private String tipo;
+    private ArrayList<Usuario> miembros;
 
     public Clan() {
     }
 
-    public Clan(String nombre, Date fecha_creacion, String usuario_lider, String tipo) {
+    public Clan(String nombre, Date fecha_creacion, String usuario_lider, String tipo, ArrayList<Usuario> miembros) {
         this.nombre = nombre;
         this.fecha_creacion = fecha_creacion;
         this.usuario_lider = usuario_lider;
         this.tipo = tipo;
+        this.miembros = miembros;
     }
+
+    
 
     public String getNombre() {
         return nombre;
@@ -59,6 +64,16 @@ public class Clan {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
+
+    public ArrayList<Usuario> getMiembros() {
+        return miembros;
+    }
+
+    public void setMiembros(ArrayList<Usuario> miembros) {
+        this.miembros = miembros;
+    }
+    
+    
     
     
 

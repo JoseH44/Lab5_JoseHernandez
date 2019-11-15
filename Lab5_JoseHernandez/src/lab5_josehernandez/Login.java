@@ -70,6 +70,10 @@ public class Login extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jl_clanes = new javax.swing.JList<>();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jl_miembros_del_clan = new javax.swing.JList<>();
         bg_tipoClan = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -321,6 +325,37 @@ public class Login extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Unirse A un Clan", jPanel3);
 
+        jLabel16.setText("Miembros del Clan");
+
+        jl_miembros_del_clan.setModel(new DefaultListModel());
+        jScrollPane2.setViewportView(jl_miembros_del_clan);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(jLabel16)
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(287, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(jLabel16))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(77, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Clan", jPanel4);
+
         javax.swing.GroupLayout jd_perfilLayout = new javax.swing.GroupLayout(jd_perfil.getContentPane());
         jd_perfil.getContentPane().setLayout(jd_perfilLayout);
         jd_perfilLayout.setHorizontalGroup(
@@ -494,7 +529,33 @@ public class Login extends javax.swing.JFrame {
         } else if (rb_legendario.isSelected()) {
             tipo = "Legendario";
         }
+
+        this.jTabbedPane1.setEnabledAt(2, false);
+
+        lista_clanes.add(new Clan(nomClan, creacion, usuario_actual.getNom_usuario(), tipo, new ArrayList<Usuario>()));
+        //se especifica el caln actual.
+        clan_actual = new Clan(nomClan, creacion, usuario_actual.getNom_usuario(), tipo, new ArrayList<Usuario>());
+        System.out.println(clan_actual);
+        //al clan actual se le agrega a la lista de usuarios un usuario.
+
+        clan_actual.getMiembros().add(usuario_actual);
         DefaultListModel m = (DefaultListModel) jl_clanes.getModel();
+        m.addElement(new Clan(nomClan, creacion, usuario_actual.getNom_usuario(), tipo, new ArrayList<Usuario>()));
+        jl_clanes.setModel(m);
+
+        DefaultListModel modelo = (DefaultListModel) jl_miembros_del_clan.getModel();
+        for (int i = 0; i < clan_actual.getMiembros().size(); i++) {
+            modelo.addElement(clan_actual.getMiembros().get(i));
+        }
+
+        jl_miembros_del_clan.setModel(modelo);
+
+        tf_nomClan.setText("");
+        dc_creacionClan.setDate(new Date());
+        rb_bronce.setSelected(true);
+        rb_plata.setSelected(false);
+        rb_oro.setSelected(false);
+        rb_legendario.setSelected(false);
 
     }//GEN-LAST:event_jButton3MouseClicked
 
@@ -549,6 +610,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -560,11 +622,14 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JDialog jd_Registrar;
     private javax.swing.JDialog jd_perfil;
     private javax.swing.JList<String> jl_clanes;
+    private javax.swing.JList<String> jl_miembros_del_clan;
     private javax.swing.JPasswordField pf_contra1Registro;
     private javax.swing.JPasswordField pf_contra2Registro;
     private javax.swing.JPasswordField pf_contraLog;
@@ -580,5 +645,7 @@ public class Login extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     ArrayList<Usuario> lista_usuarios = new ArrayList();
     Usuario usuario_actual;
+    Clan clan_actual;
+    ArrayList<Clan> lista_clanes = new ArrayList();
 
 }
