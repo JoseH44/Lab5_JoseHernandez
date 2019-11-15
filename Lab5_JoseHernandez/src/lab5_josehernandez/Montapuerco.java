@@ -15,6 +15,12 @@ public class Montapuerco extends Carta {
         super();
     }
 
+    public Montapuerco(String nombre) {
+        super(nombre);
+    }
+    
+    
+
     public Montapuerco(String nombre, double daño, int pts_vida, String objetivo, String velocidad, int coste_elixir, String tipo) {
         super(nombre, daño, pts_vida, "Terrestres", "Alta", 4, "Especial");
     }

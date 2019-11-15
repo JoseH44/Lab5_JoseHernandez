@@ -40,7 +40,7 @@ public class Mazo {
 
     @Override
     public String toString() {
-        return "" + coste;
+        return "" + "Mazo";
     }
     
     
