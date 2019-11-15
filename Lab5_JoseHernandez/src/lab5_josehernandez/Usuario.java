@@ -20,17 +20,19 @@ public class Usuario {
     private String contraseña;
     private Date fecha_nacimiento;
     private Color color_favotiro;
+    private int edad;
 
     public Usuario() {
     }
 
-    public Usuario(String nombre, String apellido, String nom_usuario, String contraseña, Date fecha_nacimiento, Color color_favotiro) {
+    public Usuario(String nombre, String apellido, String nom_usuario, String contraseña, Date fecha_nacimiento, Color color_favotiro, int edad) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.nom_usuario = nom_usuario;
         this.contraseña = contraseña;
         this.fecha_nacimiento = fecha_nacimiento;
         this.color_favotiro = color_favotiro;
+        this.edad = edad;
     }
 
     public String getNombre() {
@@ -80,6 +82,16 @@ public class Usuario {
     public void setColor_favotiro(Color color_favotiro) {
         this.color_favotiro = color_favotiro;
     }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+    
+    
 
     @Override
     public String toString() {

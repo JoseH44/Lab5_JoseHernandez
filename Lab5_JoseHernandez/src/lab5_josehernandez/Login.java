@@ -8,6 +8,7 @@ package lab5_josehernandez;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.DefaultListModel;
 import javax.swing.JColorChooser;
 import javax.swing.JOptionPane;
 
@@ -51,6 +52,25 @@ public class Login extends javax.swing.JFrame {
         dc_fecha_de_nacimiento = new com.toedter.calendar.JDateChooser();
         bt_color = new javax.swing.JButton();
         bt_registro = new javax.swing.JButton();
+        jd_perfil = new javax.swing.JDialog();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        tf_nomClan = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        dc_creacionClan = new com.toedter.calendar.JDateChooser();
+        jLabel14 = new javax.swing.JLabel();
+        rb_bronce = new javax.swing.JRadioButton();
+        rb_plata = new javax.swing.JRadioButton();
+        rb_oro = new javax.swing.JRadioButton();
+        rb_legendario = new javax.swing.JRadioButton();
+        jButton3 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jl_clanes = new javax.swing.JList<>();
+        bg_tipoClan = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -174,6 +194,147 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 714, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 425, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Crear Carta", jPanel1);
+
+        jLabel12.setText("Nombre del Clan:");
+
+        jLabel13.setText("Fecha de Creacion:");
+
+        jLabel14.setText("Tipo:");
+
+        bg_tipoClan.add(rb_bronce);
+        rb_bronce.setText("Bronce");
+
+        bg_tipoClan.add(rb_plata);
+        rb_plata.setText("Plata");
+
+        bg_tipoClan.add(rb_oro);
+        rb_oro.setText("Oro");
+
+        bg_tipoClan.add(rb_legendario);
+        rb_legendario.setText("Legendario");
+
+        jButton3.setText("Crear Clan");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(dc_creacionClan, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rb_bronce)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rb_plata)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rb_oro)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rb_legendario))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addGap(18, 18, 18)
+                                .addComponent(tf_nomClan, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(278, 278, 278)
+                        .addComponent(jButton3)))
+                .addContainerGap(298, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(107, 107, 107)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(tf_nomClan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel13)
+                    .addComponent(dc_creacionClan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(56, 56, 56)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(rb_bronce)
+                    .addComponent(rb_plata)
+                    .addComponent(rb_oro)
+                    .addComponent(rb_legendario))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(50, 50, 50))
+        );
+
+        jTabbedPane1.addTab("Crear Clan", jPanel2);
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel15.setText("Clanes");
+
+        jl_clanes.setModel(new DefaultListModel());
+        jScrollPane1.setViewportView(jl_clanes);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(291, 291, 291)
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(237, 237, 237)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(293, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabel15)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(53, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Unirse A un Clan", jPanel3);
+
+        javax.swing.GroupLayout jd_perfilLayout = new javax.swing.GroupLayout(jd_perfil.getContentPane());
+        jd_perfil.getContentPane().setLayout(jd_perfilLayout);
+        jd_perfilLayout.setHorizontalGroup(
+            jd_perfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1)
+        );
+        jd_perfilLayout.setVerticalGroup(
+            jd_perfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_perfilLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -184,6 +345,11 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setText("Contraseña:");
 
         jButton1.setText("Ingresar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         jButton2.setText("Registrar");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -255,21 +421,82 @@ public class Login extends javax.swing.JFrame {
         boolean registrado = false;
         String nombre = tf_nombreRegistro.getText();
         String apellido = tf_apellidoRegistro.getText();
+        String nomUusario = tf_nomUsuarioRegistro.getText();
         String contraseña1 = pf_contra1Registro.getText();
         String contraseña2 = pf_contra2Registro.getText();
         Date fecha_nacimiento = dc_fecha_de_nacimiento.getDate();
         int edad = (int) (((new Date()).getTime()
                 - dc_fecha_de_nacimiento.getDate().getTime())
-                / (1000 * 60 * 60 * 24));
-        System.out.println(edad);
+                / (1000 * 60 * 60 * 24)) / 365;
+
         Color color_fav = bt_color.getBackground();
 
         if (nombre.isEmpty() || apellido.isEmpty() || contraseña1.isEmpty()
                 || contraseña2.isEmpty()) {
             JOptionPane.showMessageDialog(jd_Registrar, "Alguno de los campos esta Vacio");
+        } else if (!contraseña1.equals(contraseña2)) {
+            JOptionPane.showMessageDialog(jd_Registrar, "Las contraseñas no coinciden");
+        } else {
+            lista_usuarios.add(new Usuario(nombre, apellido, nomUusario, contraseña1, fecha_nacimiento, color_fav, edad));
+            registrado = true;
+            tf_nomUsuarioRegistro.setText("");
+            tf_nombreRegistro.setText("");
+            tf_apellidoRegistro.setText("");
+            pf_contra1Registro.setText("");
+            pf_contra2Registro.setText("");
+            bt_color.setBackground(Color.red);
+            dc_fecha_de_nacimiento.setDate(new Date());
         }
 
+        if (registrado) {
+            JOptionPane.showMessageDialog(jd_Registrar, "Registrado Correctamente");
+            jd_Registrar.dispose();
+        }
+
+
     }//GEN-LAST:event_bt_registroMouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+
+        String usuarioLog = tf_usuarioLog.getText();
+        String contraLog = pf_contraLog.getText();
+        for (int i = 0; i < lista_usuarios.size(); i++) {
+            if (lista_usuarios.get(i).getNom_usuario().equals(usuarioLog)
+                    && lista_usuarios.get(i).getContraseña().equals(contraLog)) {
+                usuario_actual = lista_usuarios.get(i);
+                jd_perfil.pack();
+                jd_perfil.setLocationRelativeTo(this);
+                jd_perfil.setVisible(true);
+                this.setVisible(false);
+                break;
+
+            } else if (!lista_usuarios.get(i).getNom_usuario().equals(usuarioLog)
+                    && lista_usuarios.get(i).getContraseña().equals(contraLog)) {
+                JOptionPane.showMessageDialog(this, "Usuario o Contraseña Incorrecta");
+                break;
+
+            }
+
+        }
+
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        String nomClan = tf_nomClan.getText();
+        Date creacion = dc_creacionClan.getDate();
+        String tipo = "";
+        if (rb_bronce.isSelected()) {
+            tipo = "Bronce";
+        } else if (rb_plata.isSelected()) {
+            tipo = "Planta";
+        } else if (rb_oro.isSelected()) {
+            tipo = "Oro";
+        } else if (rb_legendario.isSelected()) {
+            tipo = "Legendario";
+        }
+        DefaultListModel m = (DefaultListModel) jl_clanes.getModel();
+
+    }//GEN-LAST:event_jButton3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -307,14 +534,21 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup bg_tipoClan;
     private javax.swing.JButton bt_color;
     private javax.swing.JButton bt_registro;
+    private com.toedter.calendar.JDateChooser dc_creacionClan;
     private com.toedter.calendar.JDateChooser dc_fecha_de_nacimiento;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -323,11 +557,23 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JDialog jd_Registrar;
+    private javax.swing.JDialog jd_perfil;
+    private javax.swing.JList<String> jl_clanes;
     private javax.swing.JPasswordField pf_contra1Registro;
     private javax.swing.JPasswordField pf_contra2Registro;
     private javax.swing.JPasswordField pf_contraLog;
+    private javax.swing.JRadioButton rb_bronce;
+    private javax.swing.JRadioButton rb_legendario;
+    private javax.swing.JRadioButton rb_oro;
+    private javax.swing.JRadioButton rb_plata;
     private javax.swing.JTextField tf_apellidoRegistro;
+    private javax.swing.JTextField tf_nomClan;
     private javax.swing.JTextField tf_nomUsuarioRegistro;
     private javax.swing.JTextField tf_nombreRegistro;
     private javax.swing.JTextField tf_usuarioLog;
