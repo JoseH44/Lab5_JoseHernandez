@@ -13,9 +13,15 @@ public class Mazo {
 
     private double coste;
     private int cant_cartas;
+    private String nombre;
 
     public Mazo() {
     }
+
+    public Mazo(String nombre) {
+        this.nombre = nombre;
+    }
+    
 
     public Mazo(double coste) {
         this.coste = coste;
@@ -38,11 +44,19 @@ public class Mazo {
         this.cant_cartas = cant_cartas;
     }
 
-    @Override
-    public String toString() {
-        return "" + "Mazo";
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
     
     
+
+    @Override
+    public String toString() {
+        return nombre;
+    }
 
 }

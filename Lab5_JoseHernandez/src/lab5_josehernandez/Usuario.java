@@ -6,6 +6,7 @@
 package lab5_josehernandez;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -21,6 +22,7 @@ public class Usuario {
     private Date fecha_nacimiento;
     private Color color_favotiro;
     private int edad;
+    private ArrayList<Mazo> mazos;
 
     public Usuario() {
     }
@@ -90,6 +92,16 @@ public class Usuario {
     public void setEdad(int edad) {
         this.edad = edad;
     }
+
+    public ArrayList<Mazo> getMazos() {
+        return mazos;
+    }
+
+    public void setMazos(ArrayList<Mazo> mazos) {
+        this.mazos = mazos;
+    }
+    
+    
     
     
 

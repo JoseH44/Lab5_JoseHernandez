@@ -38,7 +38,14 @@ public class Login extends javax.swing.JFrame {
         model.addElement(new Pandilla_de_Duendes("Pandilla de Duendes"));
         cb_cartas.setModel(model);
 
-        DefaultTreeModel m = (DefaultTreeModel) jt_mazos.getModel();
+        DefaultComboBoxModel modelCB = (DefaultComboBoxModel) cb_mazos.getModel();
+        modelCB.addElement(new Mazo("Mazo1"));
+        modelCB.addElement(new Mazo("Mazo2"));
+        modelCB.addElement(new Mazo("Mazo3"));
+        cb_mazos.setModel(modelCB);
+
+
+        /*DefaultTreeModel m = (DefaultTreeModel) jt_mazos.getModel();
         DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) m.getRoot();
         DefaultMutableTreeNode mazo1 = new DefaultMutableTreeNode(new Mazo());
         raiz.add(mazo1);
@@ -46,7 +53,7 @@ public class Login extends javax.swing.JFrame {
         raiz.add(mazo2);
         DefaultMutableTreeNode mazo3 = new DefaultMutableTreeNode(new Mazo());
         raiz.add(mazo3);
-        m.reload();
+        m.reload();*/
     }
 
     /**
@@ -87,6 +94,8 @@ public class Login extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         cb_cartas = new javax.swing.JComboBox<>();
         jButton4 = new javax.swing.JButton();
+        jLabel21 = new javax.swing.JLabel();
+        cb_mazos = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         tf_nomClan = new javax.swing.JTextField();
@@ -110,6 +119,15 @@ public class Login extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jt_mazos = new javax.swing.JTree();
         bg_tipoClan = new javax.swing.ButtonGroup();
+        pop_unirClan = new javax.swing.JPopupMenu();
+        jm_unirse = new javax.swing.JMenuItem();
+        pop_Arbol = new javax.swing.JPopupMenu();
+        jm_info = new javax.swing.JMenuItem();
+        jm_modificar = new javax.swing.JMenuItem();
+        jd_info = new javax.swing.JDialog();
+        jPanel6 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        ta_info = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -224,12 +242,13 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(jLabel10)
                     .addComponent(dc_fecha_de_nacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jd_RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bt_color, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bt_registro)
-                    .addGroup(jd_RegistrarLayout.createSequentialGroup()
+                .addGroup(jd_RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bt_color, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_RegistrarLayout.createSequentialGroup()
                         .addComponent(jLabel11)
-                        .addGap(28, 28, 28)))
+                        .addGap(28, 28, 28))
+                    .addGroup(jd_RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(bt_registro)))
                 .addContainerGap())
         );
 
@@ -242,6 +261,13 @@ public class Login extends javax.swing.JFrame {
         jLabel20.setText("Carta");
 
         jButton4.setText("Crear Carta");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+
+        jLabel21.setText("Agregar a:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -250,16 +276,22 @@ public class Login extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(44, 44, 44)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel20)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(cb_cartas, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel19)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(tf_ptsVida, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel20)
+                                .addComponent(jLabel21)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cb_cartas, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel19)
-                                .addGap(18, 18, 18)
-                                .addComponent(tf_ptsVida, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(cb_mazos, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(63, 63, 63)))
                         .addGap(108, 108, 108)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -271,7 +303,7 @@ public class Login extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(tf_nomCarta, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(306, 306, 306)
+                        .addGap(293, 293, 293)
                         .addComponent(jButton4)))
                 .addGap(82, 82, 82))
         );
@@ -286,7 +318,11 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(tf_nomCarta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(114, 114, 114)
+                        .addGap(45, 45, 45)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel21)
+                            .addComponent(cb_mazos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(49, 49, 49)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel19)
                             .addComponent(tf_ptsVida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -295,9 +331,9 @@ public class Login extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel18)
                             .addComponent(tf_dañoCarta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
                 .addComponent(jButton4)
-                .addGap(69, 69, 69))
+                .addGap(61, 61, 61))
         );
 
         jTabbedPane1.addTab("Crear Carta", jPanel1);
@@ -357,7 +393,7 @@ public class Login extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(278, 278, 278)
                         .addComponent(jButton3)))
-                .addContainerGap(298, Short.MAX_VALUE))
+                .addContainerGap(310, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -388,6 +424,11 @@ public class Login extends javax.swing.JFrame {
         jLabel15.setText("Clanes");
 
         jl_clanes.setModel(new DefaultListModel());
+        jl_clanes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jl_clanesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jl_clanes);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -402,7 +443,7 @@ public class Login extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(237, 237, 237)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(293, Short.MAX_VALUE))
+                .addContainerGap(305, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -430,7 +471,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jLabel16)
                 .addGap(35, 35, 35)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(287, Short.MAX_VALUE))
+                .addContainerGap(299, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -449,6 +490,11 @@ public class Login extends javax.swing.JFrame {
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Mazos");
         jt_mazos.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jt_mazos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_mazosMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jt_mazos);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -458,7 +504,7 @@ public class Login extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(226, 226, 226)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(326, Short.MAX_VALUE))
+                .addContainerGap(338, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -481,6 +527,63 @@ public class Login extends javax.swing.JFrame {
             .addGroup(jd_perfilLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTabbedPane1)
+                .addContainerGap())
+        );
+
+        jm_unirse.setText("Unirse Al Clan");
+        jm_unirse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jm_unirseActionPerformed(evt);
+            }
+        });
+        pop_unirClan.add(jm_unirse);
+
+        jm_info.setText("Informacion");
+        jm_info.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jm_infoActionPerformed(evt);
+            }
+        });
+        pop_Arbol.add(jm_info);
+
+        jm_modificar.setText("Modificar");
+        pop_Arbol.add(jm_modificar);
+
+        ta_info.setColumns(20);
+        ta_info.setRows(5);
+        jScrollPane4.setViewportView(ta_info);
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(103, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(83, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jd_infoLayout = new javax.swing.GroupLayout(jd_info.getContentPane());
+        jd_info.getContentPane().setLayout(jd_infoLayout);
+        jd_infoLayout.setHorizontalGroup(
+            jd_infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_infoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jd_infoLayout.setVerticalGroup(
+            jd_infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_infoLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -649,9 +752,8 @@ public class Login extends javax.swing.JFrame {
         lista_clanes.add(new Clan(nomClan, creacion, usuario_actual.getNom_usuario(), tipo, new ArrayList<Usuario>()));
         //se especifica el caln actual.
         clan_actual = new Clan(nomClan, creacion, usuario_actual.getNom_usuario(), tipo, new ArrayList<Usuario>());
-        System.out.println(clan_actual);
-        //al clan actual se le agrega a la lista de usuarios un usuario.
 
+        //al clan actual se le agrega a la lista de usuarios un usuario.
         clan_actual.getMiembros().add(usuario_actual);
         DefaultListModel m = (DefaultListModel) jl_clanes.getModel();
         m.addElement(new Clan(nomClan, creacion, usuario_actual.getNom_usuario(), tipo, new ArrayList<Usuario>()));
@@ -672,6 +774,65 @@ public class Login extends javax.swing.JFrame {
         rb_legendario.setSelected(false);
 
     }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jl_clanesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_clanesMouseClicked
+        if (jl_clanes.getSelectedIndex() >= 0) {
+            if (evt.isMetaDown()) {
+                pop_unirClan.show(evt.getComponent(), evt.getX(), evt.getY());
+            }
+        }
+    }//GEN-LAST:event_jl_clanesMouseClicked
+
+    private void jm_unirseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jm_unirseActionPerformed
+        DefaultListModel m = (DefaultListModel) jl_clanes.getModel();
+        m.get(jl_clanes.getSelectedIndex());
+
+    }//GEN-LAST:event_jm_unirseActionPerformed
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        int pts_vida = Integer.parseInt(tf_ptsVida.getText());
+        String nomCarta = tf_nomCarta.getText();
+        double daño = Double.parseDouble(tf_dañoCarta.getText());
+        Carta carta = (Carta) cb_cartas.getSelectedItem();
+        DefaultTreeModel modelArbol = (DefaultTreeModel) jt_mazos.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelArbol.getRoot();
+        DefaultMutableTreeNode nodoCarta = new DefaultMutableTreeNode(carta);
+        DefaultMutableTreeNode nodoTipo = new DefaultMutableTreeNode(carta.getTipo());
+        nodoTipo.add(nodoCarta);
+        DefaultMutableTreeNode nodoMazo = new DefaultMutableTreeNode((Mazo) cb_mazos.getSelectedItem());
+        nodoMazo.add(nodoTipo);
+        raiz.add(nodoMazo);
+        modelArbol.setRoot(raiz);
+        jt_mazos.setModel(modelArbol);
+
+        tf_nomCarta.setText("");
+        tf_dañoCarta.setText("");
+        tf_ptsVida.setText("");
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jt_mazosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_mazosMouseClicked
+        if (evt.isMetaDown()) {
+            int row = jt_mazos.getClosestRowForLocation(evt.getX(), evt.getY());
+            jt_mazos.setSelectionRow(row);
+            Object v1 = jt_mazos.getSelectionPath().getLastPathComponent();
+            nodo_seleccionado = (DefaultMutableTreeNode) v1;
+            if (nodo_seleccionado.getUserObject() instanceof Carta) {
+                carta_seleccionada = (Carta) nodo_seleccionado.getUserObject();
+                pop_Arbol.show(evt.getComponent(), evt.getX(), evt.getY());
+
+            }
+        }
+    }//GEN-LAST:event_jt_mazosMouseClicked
+
+    private void jm_infoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jm_infoActionPerformed
+        jd_info.pack();
+        jd_info.setLocationRelativeTo(jd_perfil);
+        ta_info.append(carta_seleccionada.getObjetivo());
+        ta_info.append(carta_seleccionada.getVelocidad());
+        ta_info.append("" + carta_seleccionada.getCoste_elixir());
+        ta_info.append("" + carta_seleccionada.getPts_vida());
+
+    }//GEN-LAST:event_jm_infoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -713,6 +874,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton bt_color;
     private javax.swing.JButton bt_registro;
     private javax.swing.JComboBox<String> cb_cartas;
+    private javax.swing.JComboBox<String> cb_mazos;
     private com.toedter.calendar.JDateChooser dc_creacionClan;
     private com.toedter.calendar.JDateChooser dc_fecha_de_nacimiento;
     private javax.swing.JButton jButton1;
@@ -732,6 +894,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -744,22 +907,31 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JDialog jd_Registrar;
+    private javax.swing.JDialog jd_info;
     private javax.swing.JDialog jd_perfil;
     private javax.swing.JList<String> jl_clanes;
     private javax.swing.JList<String> jl_miembros_del_clan;
+    private javax.swing.JMenuItem jm_info;
+    private javax.swing.JMenuItem jm_modificar;
+    private javax.swing.JMenuItem jm_unirse;
     private javax.swing.JTree jt_mazos;
     private javax.swing.JPasswordField pf_contra1Registro;
     private javax.swing.JPasswordField pf_contra2Registro;
     private javax.swing.JPasswordField pf_contraLog;
+    private javax.swing.JPopupMenu pop_Arbol;
+    private javax.swing.JPopupMenu pop_unirClan;
     private javax.swing.JRadioButton rb_bronce;
     private javax.swing.JRadioButton rb_legendario;
     private javax.swing.JRadioButton rb_oro;
     private javax.swing.JRadioButton rb_plata;
+    private javax.swing.JTextArea ta_info;
     private javax.swing.JTextField tf_apellidoRegistro;
     private javax.swing.JTextField tf_dañoCarta;
     private javax.swing.JTextField tf_nomCarta;
@@ -773,5 +945,7 @@ public class Login extends javax.swing.JFrame {
     Usuario usuario_actual;
     Clan clan_actual;
     ArrayList<Clan> lista_clanes = new ArrayList();
+    Carta carta_seleccionada;
+    DefaultMutableTreeNode nodo_seleccionado;
 
 }
