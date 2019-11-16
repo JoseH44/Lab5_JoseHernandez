@@ -864,7 +864,7 @@ public class Login extends javax.swing.JFrame {
 
     private void jm_unirseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jm_unirseActionPerformed
         DefaultListModel m = (DefaultListModel) jl_clanes.getModel();
-        m.get(jl_clanes.getSelectedIndex());
+        ((Clan) m.get(jl_clanes.getSelectedIndex())).getMiembros().add(usuario_actual);
 
     }//GEN-LAST:event_jm_unirseActionPerformed
 
@@ -873,10 +873,11 @@ public class Login extends javax.swing.JFrame {
         String nomCarta = tf_nomCarta.getText();
         double daño = Double.parseDouble(tf_dañoCarta.getText());
         Carta carta = (Carta) cb_cartas.getSelectedItem();
+        String tipo = carta.getTipo();
         DefaultTreeModel modelArbol = (DefaultTreeModel) jt_mazos.getModel();
         DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelArbol.getRoot();
         DefaultMutableTreeNode nodoCarta = new DefaultMutableTreeNode(carta);
-        DefaultMutableTreeNode nodoTipo = new DefaultMutableTreeNode(carta.getTipo());
+        DefaultMutableTreeNode nodoTipo = new DefaultMutableTreeNode(tipo);
         nodoTipo.add(nodoCarta);
         DefaultMutableTreeNode nodoMazo = new DefaultMutableTreeNode((Mazo) cb_mazos.getSelectedItem());
         nodoMazo.add(nodoTipo);
