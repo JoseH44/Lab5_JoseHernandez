@@ -128,6 +128,15 @@ public class Login extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         ta_info = new javax.swing.JTextArea();
+        jd_Modificar = new javax.swing.JDialog();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        tf_newName = new javax.swing.JTextField();
+        tf_newPtsVida = new javax.swing.JTextField();
+        tf_newDaño = new javax.swing.JTextField();
+        jButton5 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -547,6 +556,11 @@ public class Login extends javax.swing.JFrame {
         pop_Arbol.add(jm_info);
 
         jm_modificar.setText("Modificar");
+        jm_modificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jm_modificarMouseClicked(evt);
+            }
+        });
         pop_Arbol.add(jm_modificar);
 
         ta_info.setColumns(20);
@@ -585,6 +599,71 @@ public class Login extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+        );
+
+        jLabel22.setText("Nuevo Nombre:");
+
+        jLabel23.setText("Nuevos Puntos de Vida:");
+
+        jLabel25.setText("Nuevo Daño:");
+
+        jButton5.setText("Modificar");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_ModificarLayout = new javax.swing.GroupLayout(jd_Modificar.getContentPane());
+        jd_Modificar.getContentPane().setLayout(jd_ModificarLayout);
+        jd_ModificarLayout.setHorizontalGroup(
+            jd_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_ModificarLayout.createSequentialGroup()
+                .addGap(74, 74, 74)
+                .addGroup(jd_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_ModificarLayout.createSequentialGroup()
+                        .addGroup(jd_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_ModificarLayout.createSequentialGroup()
+                                .addComponent(jLabel23)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tf_newPtsVida, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_ModificarLayout.createSequentialGroup()
+                                .addComponent(jLabel22)
+                                .addGap(31, 31, 31)
+                                .addComponent(tf_newName, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jd_ModificarLayout.createSequentialGroup()
+                        .addComponent(jLabel24)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel25)
+                        .addGap(18, 18, 18)
+                        .addComponent(tf_newDaño, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(360, 360, 360))))
+            .addGroup(jd_ModificarLayout.createSequentialGroup()
+                .addGap(262, 262, 262)
+                .addComponent(jButton5)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jd_ModificarLayout.setVerticalGroup(
+            jd_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_ModificarLayout.createSequentialGroup()
+                .addGap(95, 95, 95)
+                .addGroup(jd_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(tf_newName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(52, 52, 52)
+                .addGroup(jd_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(tf_newPtsVida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47)
+                .addGroup(jd_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(tf_newDaño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel24)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addComponent(jButton5)
+                .addGap(61, 61, 61))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -834,6 +913,22 @@ public class Login extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jm_infoActionPerformed
 
+    private void jm_modificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jm_modificarMouseClicked
+        jd_Modificar.pack();
+        jd_Modificar.setLocationRelativeTo(jd_perfil);
+    }//GEN-LAST:event_jm_modificarMouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        String newName = tf_newName.getText();
+        double daño = Double.parseDouble(tf_newDaño.getText());
+        int newVida = Integer.parseInt(tf_newPtsVida.getText());
+        carta_seleccionada.setNombre(newName);
+        carta_seleccionada.setDaño(daño);
+        carta_seleccionada.setPts_vida(newVida);
+        JOptionPane.showMessageDialog(jd_perfil, "Modificado Exitosamente");
+        jd_Modificar.dispose();
+    }//GEN-LAST:event_jButton5MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -881,6 +976,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -895,6 +991,10 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -913,6 +1013,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JDialog jd_Modificar;
     private javax.swing.JDialog jd_Registrar;
     private javax.swing.JDialog jd_info;
     private javax.swing.JDialog jd_perfil;
@@ -934,6 +1035,9 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextArea ta_info;
     private javax.swing.JTextField tf_apellidoRegistro;
     private javax.swing.JTextField tf_dañoCarta;
+    private javax.swing.JTextField tf_newDaño;
+    private javax.swing.JTextField tf_newName;
+    private javax.swing.JTextField tf_newPtsVida;
     private javax.swing.JTextField tf_nomCarta;
     private javax.swing.JTextField tf_nomClan;
     private javax.swing.JTextField tf_nomUsuarioRegistro;
